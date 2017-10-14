@@ -21,7 +21,7 @@ public:
 
 #endif
 
-//extern sf::RenderWindow* appPtr;
+extern sf::RenderWindow* appPtr;
 
 typedef signed 		char 	int8;
 typedef unsigned 	char 	uint8;
