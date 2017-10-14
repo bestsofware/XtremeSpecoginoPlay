@@ -51,6 +51,7 @@ int main(int argc, const char* argv[])
 		Entity::doAllEntitiesDraw();
 
 		app.display();
+		g_currentFrame++;
 	}
 
 	std::cout << "\n======================\nFin du programme\n";
