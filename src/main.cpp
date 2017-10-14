@@ -53,7 +53,7 @@ int main(int argc, const char* argv[])
 		app.display();
 	}
 
-	std::cout << "\n======================\nEl gringo ha terminado\n";
+	std::cout << "\n======================\nFin du programme\n";
 
 	return 0;
 }
