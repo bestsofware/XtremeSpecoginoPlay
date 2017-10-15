@@ -40,8 +40,7 @@ void FlyingVehicle::draw()
 
 void FlyingVehicle::move()
 {
-<<<<<<< HEAD
-=======
+
     if(m_id != 1)
         return;
 
@@ -73,7 +72,7 @@ void FlyingVehicle::move()
     m_sprite.move(::cosf(spriteAngle * MATH_DEG_TO_RAD) * speed, ::sinf(spriteAngle * MATH_DEG_TO_RAD) * speed);
 
     return;
->>>>>>> master
+
 
     //m_sprite.setPosition(200.f + 100.f * sin((float)g_currentFrame / 120.f * 2.f * (float)MATH_PI),200.f + 100.f * cos((float)g_currentFrame / 120.f * 2.f * (float)MATH_PI));
 
@@ -95,7 +94,7 @@ void FlyingVehicle::move()
     {
         m_sprite.move(0,3);
     }
-<<<<<<< HEAD
+
 /*
     if ((position.x > 400 && position.x < 430) && (position.y > 400 && position.y < 430))
     {
@@ -105,7 +104,7 @@ void FlyingVehicle::move()
 */
 
 
-=======
+
     /*
         if ((position.x > 400 && position.x < 430) && (position.y > 400 && position.y < 430))
         {
@@ -113,7 +112,7 @@ void FlyingVehicle::move()
         }
 
      */
->>>>>>> master
+
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
         m_sprite.rotate(-15);
@@ -128,22 +127,22 @@ void FlyingVehicle::move()
     {
         m_sprite.rotate(45);
     }
-<<<<<<< HEAD
 
 
 
-=======
+
+
 }
 
 void FlyingVehicle::onCollision(const EntityRef& other)
 {
-    dbg() << "Entity n°" << m_id << " says : \"OUILLE\"";
+    dbg() << "Entity n°" << m_id << " says : \"COUILLE\"";
 }
 
 void FlyingVehicle::setPosition(const Vec2f& pos)
 {
     m_sprite.setPosition(pos);
->>>>>>> master
+
 }
 
 } /* namespace ent */
