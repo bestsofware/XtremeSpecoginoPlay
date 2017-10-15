@@ -1,3 +1,14 @@
+#ignore all but src and data folders
+/*
+/*/
+!/src/
+!/data/
+
+#projects
+*.cbp
+*.project
+*.cproject
+
 # Prerequisites
 *.d
 
