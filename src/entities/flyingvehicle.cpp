@@ -23,7 +23,7 @@ FlyingVehicle::FlyingVehicle() :
 
 FlyingVehicle::~FlyingVehicle()
 {
-
+    
 }
 
 void FlyingVehicle::think()
@@ -33,12 +33,13 @@ void FlyingVehicle::think()
 
 void FlyingVehicle::draw()
 {
-	g_appPtr->draw(m_sprite);
+    m_sprite.setPosition(getGameMousePos());
+    g_appPtr->draw(m_sprite);
 }
 
 void FlyingVehicle::move()
 {
-
+    
 }
 
 } /* namespace ent */
