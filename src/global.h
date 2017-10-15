@@ -32,7 +32,7 @@ typedef unsigned 	long	uint32;
 typedef signed   long long	int64;
 typedef unsigned long long	uint64;
 
-extern sf::RenderWindow* appPtr;
+extern sf::RenderWindow* g_appPtr;
 extern uint32 g_currentFrame;
 
 sf::Vector2f getGameMousePos();
