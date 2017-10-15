@@ -22,6 +22,10 @@ public:
 	virtual void draw();
 
 	virtual void move();
+        
+        virtual void onCollision(const EntityRef& other);
+        
+        virtual void setPosition(const Vec2f& pos);
 
 protected:
 	sf::Sprite m_sprite;

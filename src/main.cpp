@@ -24,7 +24,11 @@ int main(int argc, const char* argv[])
 	sf::Event event;
 
 	EntityRef* ref = new EntityRef(new FlyingVehicle());
-	(*ref)->spawn();
+    (*ref)->spawn();
+
+    EntityRef* ref2 = new EntityRef(new FlyingVehicle());
+    (*ref2)->setPosition(Vec2f(200.f, 200.f));
+    (*ref2)->spawn();
 
 
 	while(app.isOpen())

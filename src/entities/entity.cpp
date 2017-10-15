@@ -52,11 +52,12 @@ void Entity::clearDespawnQueue()
 }
 
 Entity::Entity() :
-		m_referencesCount(0),
-		m_id(++s_lastId),
-		m_spawned(false),
-		m_thinks(false),
-		m_visible(true)
+    m_referencesCount(0),
+    m_id(++s_lastId),
+    m_spawned(false),
+    m_thinks(false),
+    m_visible(true),
+    m_collisionMask(COL_NONE)
 {
 	dbg() << "Created ent id " << m_id;
 }
