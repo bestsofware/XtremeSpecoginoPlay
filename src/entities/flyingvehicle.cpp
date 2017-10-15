@@ -16,7 +16,7 @@ FlyingVehicle::FlyingVehicle() :
 		m_collisionRadius(16.f)
 {
 	m_sprite.setTexture(RessourceManager::getTexture("test.png"));
-	m_sprite.setOrigin(m_sprite.getLocalBounds().width / 2.f, m_sprite.getLocalBounds().height / 2.f);
+    m_sprite.setOrigin(m_sprite.getGlobalBounds().width / 2.f, m_sprite.getGlobalBounds().height / 2.f);
 	m_thinks = true;
 	m_visible = true;
 }
@@ -28,17 +28,44 @@ FlyingVehicle::~FlyingVehicle()
 
 void FlyingVehicle::think()
 {
-	move();
+    move();
 }
 
 void FlyingVehicle::draw()
 {
-    m_sprite.setPosition(getGameMousePos());
     g_appPtr->draw(m_sprite);
 }
 
 void FlyingVehicle::move()
 {
+    Vec2f target = getGameMousePos();
+
+    float targetAngle = ::atan2f(target.y - m_sprite.getPosition().y, target.x - m_sprite.getPosition().x) * MATH_RAD_TO_DEG;
+    while(targetAngle < -180.f)
+        targetAngle += 360.f;
+    while(targetAngle > 180.f)
+        targetAngle -= 360.f;
+
+    float speed = 2.f;
+
+    float spriteAngle = symetrizeAngle(m_sprite.getRotation());
+
+    float diffAngle = symetrizeAngle(spriteAngle - targetAngle);
+
+    //if(sf::Mouse::isButtonPressed(sf::Mouse::Right))
+    {
+        if(diffAngle < -3.1f)
+            spriteAngle += 3.f;
+        else if(diffAngle > 3.1f)
+            spriteAngle -= 3.f;
+        else
+            spriteAngle = targetAngle;
+    }
+
+    m_sprite.setRotation(spriteAngle);
+    m_sprite.move(::cosf(spriteAngle * MATH_DEG_TO_RAD) * speed, ::sinf(spriteAngle * MATH_DEG_TO_RAD) * speed);
+
+    return;
 
     //m_sprite.setPosition(200.f + 100.f * sin((float)g_currentFrame / 120.f * 2.f * (float)MATH_PI),200.f + 100.f * cos((float)g_currentFrame / 120.f * 2.f * (float)MATH_PI));
 

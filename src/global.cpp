@@ -8,3 +8,13 @@ sf::Vector2f getGameMousePos()
 {
     return g_appPtr->mapPixelToCoords(sf::Mouse::getPosition(*g_appPtr), g_appView);
 }
+
+float symetrizeAngle(float degAngle)
+{
+    while(degAngle < -180.f)
+        degAngle += 360.f;
+    while(degAngle > 180.f)
+        degAngle -= 360.f;
+
+    return degAngle;
+}
