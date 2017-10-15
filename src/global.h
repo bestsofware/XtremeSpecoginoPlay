@@ -1,9 +1,10 @@
 #ifndef GLOBAL_H
 #define GLOBAL_H
 
+#include <SFML/Graphics.hpp>
+
 #ifdef DEBUG
 #include <iostream>
-#include <SFML/Graphics.hpp>
 
 class dbg
 {
@@ -33,7 +34,12 @@ typedef signed   long long	int64;
 typedef unsigned long long	uint64;
 
 extern sf::RenderWindow* g_appPtr;
+<<<<<<< HEAD
+=======
+extern sf::View g_appView; 
+>>>>>>> master
 extern uint32 g_currentFrame;
+//test
 
 sf::Vector2f getGameMousePos();
 

@@ -13,12 +13,13 @@ using ent::FlyingVehicle;
 
 int main(int argc, const char* argv[])
 {
-	RessourceManager::BAD_TEXTURE.loadFromFile("badTexture.png");
+	RessourceManager::BAD_TEXTURE.loadFromFile("data/img/badTexture.png");
 
 	sf::RenderWindow app(sf::VideoMode(800, 600), "Test");
 	app.setFramerateLimit(60);
 
 	g_appPtr = &app;
+        g_appView = app.getDefaultView();
 
 	sf::Event event;
 
