@@ -5,6 +5,7 @@
 #include "flyingvehicle.h"
 
 #include "../ressourcemanager.h"
+#include "entityref.h"
 
 #include <cmath>
 
@@ -18,7 +19,8 @@ FlyingVehicle::FlyingVehicle() :
 	m_sprite.setTexture(RessourceManager::getTexture("test.png"));
     m_sprite.setOrigin(m_sprite.getGlobalBounds().width / 2.f, m_sprite.getGlobalBounds().height / 2.f);
 	m_thinks = true;
-	m_visible = true;
+    m_visible = true;
+    m_collisionMask = COL_FLYING_OBJECTS;
 }
 
 FlyingVehicle::~FlyingVehicle()
@@ -38,6 +40,9 @@ void FlyingVehicle::draw()
 
 void FlyingVehicle::move()
 {
+    if(m_id != 1)
+        return;
+
     Vec2f target = getGameMousePos();
 
     float targetAngle = ::atan2f(target.y - m_sprite.getPosition().y, target.x - m_sprite.getPosition().x) * MATH_RAD_TO_DEG;
@@ -87,15 +92,13 @@ void FlyingVehicle::move()
     {
         m_sprite.move(0,3);
     }
-/*
-    if ((position.x > 400 && position.x < 430) && (position.y > 400 && position.y < 430))
-    {
-        m_sprite.rotate(4);
-    }
+    /*
+        if ((position.x > 400 && position.x < 430) && (position.y > 400 && position.y < 430))
+        {
+            m_sprite.rotate(4);
+        }
 
-*/
-
-
+     */
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
         m_sprite.rotate(-15);
@@ -110,9 +113,16 @@ void FlyingVehicle::move()
     {
         m_sprite.rotate(45);
     }
+}
 
+void FlyingVehicle::onCollision(const EntityRef& other)
+{
+    dbg() << "Entity n°" << m_id << " says : \"OUILLE\"";
+}
 
-
+void FlyingVehicle::setPosition(const Vec2f& pos)
+{
+    m_sprite.setPosition(pos);
 }
 
 } /* namespace ent */
