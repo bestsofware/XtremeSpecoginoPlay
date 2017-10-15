@@ -3,6 +3,8 @@
 /*/
 !/src/
 !/data/
+!.gitignore
+!README.md
 
 #projects
 *.cbp
