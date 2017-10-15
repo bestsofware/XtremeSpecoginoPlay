@@ -34,10 +34,9 @@ typedef signed   long long	int64;
 typedef unsigned long long	uint64;
 
 extern sf::RenderWindow* g_appPtr;
-<<<<<<< HEAD
-=======
-extern sf::View g_appView; 
->>>>>>> master
+
+extern sf::View g_appView;
+
 extern uint32 g_currentFrame;
 //test
 

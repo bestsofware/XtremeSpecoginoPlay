@@ -23,7 +23,7 @@ FlyingVehicle::FlyingVehicle() :
 
 FlyingVehicle::~FlyingVehicle()
 {
-    
+
 }
 
 void FlyingVehicle::think()
@@ -39,7 +39,7 @@ void FlyingVehicle::draw()
 
 void FlyingVehicle::move()
 {
-<<<<<<< HEAD
+
     //m_sprite.setPosition(200.f + 100.f * sin((float)g_currentFrame / 120.f * 2.f * (float)MATH_PI),200.f + 100.f * cos((float)g_currentFrame / 120.f * 2.f * (float)MATH_PI));
 
     //sf::Vector2i position = sf::Mouse::getPosition();
@@ -84,9 +84,8 @@ void FlyingVehicle::move()
         m_sprite.rotate(45);
     }
 
-=======
-    
->>>>>>> master
+
+
 }
 
 } /* namespace ent */
